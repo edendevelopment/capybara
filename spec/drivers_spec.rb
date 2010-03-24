@@ -90,6 +90,11 @@ shared_examples_for 'driver' do
         @node.find('//form').all('//table').size.should == 5
       end
     end
+
+    it "should be able to navigate/search child nodes using css" do
+      @node.all(:css, 'table').size.should == 5
+      @node.find(:css, 'form').all(:css, 'table').size.should == 1
+    end
   end
 
 end
